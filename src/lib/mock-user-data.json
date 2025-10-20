@@ -5,9 +5,9 @@
     "firstName": "George",
     "lastName": "Washington",
     "role": "admin",
-    "code": "105015",
+    "code": "",
     "mfa": true,
-    "token": "MkJ7bbLDCS",
+    "token": "",
     "password": "georgeWashington"
   },
   {
