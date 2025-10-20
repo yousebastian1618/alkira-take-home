@@ -13,17 +13,16 @@
   min-height: 100svh;
   padding: 80px;
   gap: 64px;
-  font-family: var(--font-geist-sans);
 }
 
 @media (prefers-color-scheme: dark) {
   .page {
-    --gray-rgb: 255, 255, 255;
-    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
-    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
+    /*--gray-rgb: 255, 255, 255;*/
+    /*--gray-alpha-200: rgba(var(--gray-rgb), 0.145);*/
+    /*--gray-alpha-100: rgba(var(--gray-rgb), 0.06);*/
 
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
+    /*--button-primary-hover: #ccc;*/
+    /*--button-secondary-hover: #1a1a1a;*/
   }
 }
 
@@ -35,7 +34,6 @@
 }
 
 .main ol {
-  font-family: var(--font-geist-mono);
   padding-left: 0;
   margin: 0;
   font-size: 14px;
@@ -127,8 +125,7 @@ a.secondary {
 
 @media (max-width: 600px) {
   .page {
-    padding: 32px;
-    padding-bottom: 80px;
+    padding: 32px 32px 80px 32px;
   }
 
   .main {
@@ -162,6 +159,6 @@ a.secondary {
 
 @media (prefers-color-scheme: dark) {
   .logo {
-    filter: invert();
+    /*filter: invert();*/
   }
 }

@@ -1,0 +1,13 @@
+.modified-button {
+  padding: 1.5ex 1em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: var(--default-button-color);
+  color: white;
+  transition: ease 0.2s;
+  font-weight: bold;
+  &:hover {
+    background-color: var(--default-button-hovering-color);
+  }
+}

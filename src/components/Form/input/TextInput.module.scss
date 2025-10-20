@@ -1,0 +1,30 @@
+.inputContainer {
+  width: 100%;
+  .inputLabel {
+    font-weight: 600;
+    font-size: 0.8rem;
+    padding-left: 0.5rex;
+  }
+  .textInput {
+    border: 0.2px solid grey;
+    margin: 1rex 0;
+    padding: 1rex 1rex 1rex 1rex;
+    border-radius: 0.5rex;
+    width: 100%;
+    &:focus {
+      border: 0.2px solid grey;
+      outline: none;
+    }
+  }
+  .formInputError {
+    font-size: 0.75rem;
+    color: var(--default-red-color);
+    text-align: center;
+    margin: 1rex auto;
+    text-wrap: wrap;
+  }
+}
+
+#required {
+  color: var(--default-red-color);
+}

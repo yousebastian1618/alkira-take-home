@@ -1,12 +1,19 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --default-button-color: #2b56f0;
+  --default-button-hovering-color: #3d7ee6;
+  --default-background-color: #ffffff;
+  --default-brandkit-color: #2b56f0;
+  --default-grey-font-color: #78808c;
+  --default-red-color: #F03F07;
+  --default-green-color: #9DED9D;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /*--background: #0a0a0a;*/
+    /*--foreground: #ededed;*/
   }
 }
 
@@ -19,7 +26,9 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -37,6 +46,6 @@ a {
 
 @media (prefers-color-scheme: dark) {
   html {
-    color-scheme: dark;
+    /*color-scheme: dark;*/
   }
 }

@@ -1,0 +1,46 @@
+[
+  {
+    "uuid": "05e28903-c8f9-4edb-9eb5-f01fda24282c",
+    "email": "george_washington@alkira.com",
+    "firstName": "George",
+    "lastName": "Washington",
+    "role": "admin",
+    "code": "105015",
+    "mfa": true,
+    "token": "MkJ7bbLDCS",
+    "password": "georgeWashington"
+  },
+  {
+    "uuid": "b7a7c144-7bc7-4551-afee-e8300a494518",
+    "email": "hello_world@alkira.com",
+    "firstName": "Hello",
+    "lastName": "World",
+    "role": "admin",
+    "code": "",
+    "mfa": true,
+    "token": "",
+    "password": "helloWorld"
+  },
+  {
+    "uuid": "6ed64d78-82c7-4ea3-a8f5-4134a6ae03e7",
+    "email": "john_doe@alkira.com",
+    "firstName": "John",
+    "lastName": "Doe",
+    "role": "basic",
+    "code": "",
+    "mfa": true,
+    "token": "",
+    "password": "johnDoe"
+  },
+  {
+    "uuid": "4eebb5b5-d7ac-4351-8f91-905ba68f1aa9",
+    "email": "adam_smith@alkira.com",
+    "firstName": "Adam",
+    "lastName": "Smith",
+    "role": "basic",
+    "code": "",
+    "mfa": true,
+    "token": "",
+    "password": "adamSmith"
+  }
+]

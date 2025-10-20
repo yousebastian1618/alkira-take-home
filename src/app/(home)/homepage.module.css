@@ -1,0 +1,34 @@
+.homePageContainer {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -40%);
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  & > * {
+    margin: 1rem auto;
+  }
+  .homePageTitle {
+    font-size: 5rem;
+    text-align: center;
+  }
+  .homePageStateContainer {
+    min-width: 50%;
+    box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
+    padding: 1rem;
+    border-radius: 1rem;
+    .homePageState {
+      padding: 2rem;
+      text-align: center;
+    }
+  }
+  .buttonContainer {
+    display: grid;
+    grid-auto-flow: column; /* lay items out horizontally */
+    grid-auto-columns: minmax(100px, 150px);
+    gap: 1rem;
+    justify-content: start; /* or center / space-between */
+    align-items: center;
+  }
+}

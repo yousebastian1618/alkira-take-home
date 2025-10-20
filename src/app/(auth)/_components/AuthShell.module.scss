@@ -1,0 +1,65 @@
+.container {
+  width: 100%;
+  height: 100%;
+  background-color: var(--default-brandkit-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .authContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    height: 60%;
+    background-color: white;
+    border-radius: 2rex;
+    box-shadow: rgba(17, 17, 26, 0.1) 0 4px 16px, rgba(17, 17, 26, 0.1) 0 8px 24px, rgba(17, 17, 26, 0.1) 0 16px 56px;
+    .imageContainer {
+      aspect-ratio: 1 / 1;
+      height: 100%;
+      position: relative;
+      margin: auto;
+      width: 50%;
+    }
+    .formContainer {
+      width: 100%;
+      margin: auto;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      .logoContainerWrapper {
+        padding: 1rem;
+        width: 30%;
+        transition: ease 0.2s;
+        cursor: pointer;
+        &:hover {
+          transform: scale(1.04);
+          box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
+          border-radius: 1rem;
+        }
+        .logoContainer {
+          aspect-ratio: 761 / 243;
+          width: 100%;
+          position: relative;
+          .logoStyle {
+            object-fit: contain;
+          }
+        }
+      }
+      .authFormContainer {
+        min-width: 60%;
+      }
+      .authButtonsWrapper {
+        width: 50%;
+        .authButtonsContainer {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+          grid-gap: 1rem;
+        }
+      }
+    }
+  }
+}
