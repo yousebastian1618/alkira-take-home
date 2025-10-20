@@ -3,6 +3,8 @@ import path from "path";
 import {User} from "@/types/user";
 
 const userDataPath = "src/lib/mock-user-data.json";
+const codePath = "src/lib/mfa-code.txt";
+const resetPasswordPath = "src/lib/reset-password.txt";
 
 export async function getUsersData() {
   const file = path.join(process.cwd(), userDataPath);
@@ -12,6 +14,34 @@ export async function getUsersData() {
 
 export async function saveUserData(users: User[]) {
   await fs.writeFile(userDataPath, JSON.stringify(users, null, 2));
+}
+
+export async function saveCode(code: string, mfaUrl: string) {
+  const content = 'MFA code: ' + code + '\n' + 'MFA Url: ' + mfaUrl;
+  await fs.writeFile(codePath, content);
+}
+
+export async function removeCode() {
+  try {
+    await fs.unlink(codePath);
+    console.log("File deleted successfully");
+  } catch {
+    return;
+  }
+}
+
+export async function saveResetPassword(resetPasswordURL: string) {
+  const content = `Reset Password URL: ${resetPasswordURL}`;
+  await fs.writeFile(resetPasswordPath, content);
+}
+
+export async function removeResetPassword() {
+  try {
+    await fs.unlink(resetPasswordPath);
+    console.log("File deleted successfully");
+  } catch {
+    return;
+  }
 }
 
 export function generateToken(tokenLength: number) {

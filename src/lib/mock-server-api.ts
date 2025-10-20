@@ -1,8 +1,10 @@
 import {User} from "@/types/user";
-import {checkPassword, generateCode, generateToken, getUsersData, saveUserData, updateUser} from "@/lib/server-data-helper";
+import {checkPassword, generateCode, generateToken, getUsersData, removeCode, removeResetPassword, saveCode, saveResetPassword, saveUserData, updateUser} from "@/lib/server-data-helper";
 import {NextResponse} from "next/server";
 import {signJwt, verifyJwt} from "@/lib/jwt";
 import {clearCookie, getCookie, setCookie} from "@/lib/cookies";
+
+const client = "http://localhost:3000"
 
 export const mockServerApi = {
   async checkAuthenticated() {
@@ -38,6 +40,7 @@ export const mockServerApi = {
       const newUser = {...user, code: code, token: token};
       const newUserData = await updateUser(users, user, newUser);
       await saveUserData(newUserData);
+      await saveCode(code, `${client}/mfa/${token}`);
       return NextResponse.json({
         email: user.email,
         code: code,
@@ -107,6 +110,7 @@ export const mockServerApi = {
     const newUser = {...user, token: token};
     const newUserData = await updateUser(users, user, newUser);
     await saveUserData(newUserData);
+    await saveResetPassword(`${client}/reset-password/${token}`);
     return NextResponse.json(
       token,
       { status: 200}
@@ -133,14 +137,16 @@ export const mockServerApi = {
     const newUser = {...user, password: password, token: ''};
     const newUserData = await updateUser(users, user, newUser);
     await saveUserData(newUserData);
+    await removeResetPassword();
     return NextResponse.json(
       true,
       { status: 200 }
     );
   },
 
-  async mfaAPI({ code }: {
-    code: string
+  async mfaAPI({ code, token }: {
+    code: string,
+    token: string
   }) {
     const users = await getUsersData();
     const user = users.find((user: User) => user.code === code);
@@ -150,9 +156,16 @@ export const mockServerApi = {
         { status: 400}
       )
     }
+    if (user.token !== token) {
+      return NextResponse.json(
+        "You are not authorized.",
+        { status: 401}
+      )
+    }
     const newUser = {...user, code: "", token: ""};
     const newUserData = await updateUser(users, user, newUser);
     await saveUserData(newUserData);
+    await removeCode();
     const jwt = await signJwt({
       sub: user.id,
       email: user.email,

@@ -32,7 +32,7 @@ const crud: ButtonAction = async ({ button, navigate }) => {
     }
     const payload = formState.getFormParams();
     const pathname = window.location.pathname.split('/').slice(1)
-    if (pathname[0] === 'reset-password') {
+    if (pathname[0] === 'reset-password' || pathname[0] === 'mfa') {
       payload.token = pathname[1];
     }
     response = await apiPOSTRequest(
