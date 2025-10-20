@@ -22,8 +22,8 @@ Then open [http://localhost:3000](http://localhost:3000) with your browser to vi
     * Use any user's `email` and `password` to test the login flow.
 3. After logging in, you'll be redirected to the ***MFA Page*** `(/mfa/[token])`.
    * The generated 6-digit MFA code is saved to `src/lib/mfa-code.txt`.
-   * IF not found there, the same code is also available in the mock user databse under the `code` key for the corresponding user.
-4. Upon successful <FA verification, you'll be redirected back to the **Home Page**.
+   * If not found there, the same code is also available in the mock user databse under the `code` key for the corresponding user.
+4. Upon successful MFA verification, you'll be redirected back to the **Home Page**.
 
 
 ## Run Test (Cypress)
