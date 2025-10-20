@@ -2,35 +2,35 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
-First, run the development server:
+Install the package by running:
 
 ```bash
+npm install
+```
+
+Second, run the server locally by running:
+```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## How to use logging in
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Once you open the app, click `Login` button from `Home Page`.
+2. Sample user data is located in the file `src/lib/mock-user-data.json`. You may use any of the user's `email` and `password` to test logging in.
+3. Once you are redirected to `MFA Page`, a 6-digit code is saved in the file `src/lib/mfa-code.txt`.
+4. You will be redirected to the `Home Page` once you successfully pass MFA step.
 
-## Learn More
+## Run Test (Cypress)
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+* Simply run
+  ``` bash
+  npx cypress run
+    ```
+* The sample user data for testing is located in `cypress/fixtures/example.json`
+* Currently there are 4 tests:
+  * healthCheck - Testing if the server is running.
+  * loginMFA - Testing both logging in and MFA steps
+  * loginWrongPassword - Testing logging in with wrong password
+  * wrongMFACode - Testing logging in with wrong MFA code
